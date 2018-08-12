@@ -1,0 +1,14 @@
+.buttons {
+    display: flex;
+    margin: -.25em;
+}
+
+.buttons .btn {
+    margin: 0 .25em .25em;
+}
+
+.empty {
+    padding: 4em 2em;
+    text-align: center;
+    border: 1px solid #ddd;
+}
