@@ -1,3 +1,13 @@
+function random_string() {
+    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+}
+
+export function generateUniqueId() {
+    return new Date().getTime().toString(36) + '-' + random_string();
+}
+
+window.generateUniqueId = generateUniqueId;
+
 export function b64EncodeUnicode(str) {
     // first we use encodeURIComponent to get percent-encoded UTF-8,
     // then we convert the percent encodings into raw bytes which
@@ -20,3 +30,14 @@ export function b64DecodeUnicode(str) {
 
 // b64DecodeUnicode('4pyTIMOgIGxhIG1vZGU='); // "✓ à la mode"
 // b64DecodeUnicode('Cg=='); // "\n"
+
+export function shuffle(array) {
+    let i, j = 0, temp = null;
+
+    for (i = array.length - 1; i > 0; i -= 1) {
+        j = Math.floor(Math.random() * (i + 1));
+        temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
